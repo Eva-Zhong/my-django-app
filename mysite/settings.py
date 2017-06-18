@@ -26,7 +26,7 @@ SECRET_KEY = '0^uxn4=47pu%i(-2!blze6a6q39)2nuxk+z(#t9@chrg1r(i1u'
 DEBUG = True
 
 ALLOWED_HOSTS = ['carlofficehour.pythonanywhere.com',
-                
+                 '127.0.0.1',
                 ]
 
 
