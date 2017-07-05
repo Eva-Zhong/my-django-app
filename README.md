@@ -1,4 +1,7 @@
-# my-django-app
+# Carleton Office Hour
+
+This is a website that displays the office hours of professors and staff at Carleton College.
+
 
 To run the website, type "python manage.py runserver" in the console, and then go to the link (http://127.0.0.1:8000/) given.
 To make local changes to the content, go to http://127.0.0.1:8000/admin (please contact me for account and password), and then
