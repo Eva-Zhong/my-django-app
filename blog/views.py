@@ -7,7 +7,7 @@ from django.shortcuts import render, get_object_or_404
 # Create your views here.
 def post_list(request):
 
-	posts = Post.objects.filter(title__contains='t') # the name of our querySet
+	posts = Post.objects.all() # the name of our querySet
 	
 	return render(request, 'blog/post_list.html', {'posts': posts})
 
