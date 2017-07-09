@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>Django Girls blog</title>
+        <title>Carl Office Hour</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -11,17 +11,44 @@
     <body>
 
         {% block title %}
-
         <div class="page-header"> <h1> <a href="/">Carleton Office Hour</a></h1> </div>
-
         {% endblock %}
+
+
+
+
+        <!--Search bar-->
+        <div id="Search_bar">
+        <fieldset class="search-fieldset" style="position: relative;
+                                                margin-bottom: 15px;
+                                                margin-left: 40px;
+                                                margin-right: 40px;
+                                                text-align: center;
+                                                font-weight: bold;">
+        <legend> Find What You Want: </legend>
+
+            <!--Add some explanations at the background-->
+            <input id="search_keyword" type="text"
+            style="width:90%;height: 40px;border-radius: 8px;opacity: 0.6; font-size: 20px;">
+            <button onclick="getSearchResult()"
+            style="width: 47px;height: 40px;border-radius: 5px;background: white; float: right; opacity: 0.9;"> 🔍</button>
+            <br><br>
+            <form action="">
+            <input type="radio" name="search_criteria" value="search_by_name"> Search By Name
+            <input type="radio" name="search_criteria" value="search_by_genre"> Search By Department
+        </form>
+        </fieldset>
+        <br>
+        </div>
+
+
 
 
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
 
-                 <!–– a block is created here ––>
+                 <!--a block is created here-->
                 {% block content %}
                     {% block post %}
                     {% endblock %}
