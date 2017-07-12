@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% block post %}
+
+        {% if post_list %}
+            <ul>
+            {% for post in post_list %}
+                <li><a href="/post/{{ post.pk }}/">{{ post.title }}</a></li>
+                <div class="date">
+                                <p>published: {{ post.published_date }}</p>
+                </div>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+
+
+    {% endblock %}
+
+{% endblock %}
