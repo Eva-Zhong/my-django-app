@@ -19,12 +19,29 @@
             <script type="text/javascript">
                 function getSearchResult() {
                     var radios = document.getElementsByName("search_criteria");
-                    var search_input = document.getElementById("search_input");                   
                     var search_result_url;
-                    search_result_url = "{% url 'post_search' search_key='NOTAKEY' %}"
+
+                    var checkedCriteria;
+                    for (var i = 0, length = radios.length; i<length; i++){
+                        if (radios[i].checked){
+                            checkedCriteria = radios[i].value;
+                        break;
+                        }
+                    }
+
+                    var search_result_url;
+                    if (checkedCriteria == "search_by_dpt"){
+                        search_result_url = "{% url 'post_search_dpt' search_key='NOTAKEY' %}";
+                    } else {
+                        search_result_url = "{% url 'post_search_title' search_key='NOTAKEY' %}";
+                    } 
+
+                    var search_input = document.getElementById("search_input");
+
                     var result_url = search_result_url.replace('NOTAKEY', search_input.value);
                     window.location = result_url;
                 }
+
             </script>
         {% endblock %}
 
@@ -49,7 +66,7 @@
             <br><br>
             <form action="">
             <input type="radio" name="search_criteria" value="search_by_name"> Search By Name
-            <input type="radio" name="search_criteria" value="search_by_genre"> Search By Department
+            <input type="radio" name="search_criteria" value="search_by_dpt"> Search By Department
         </form>
         </fieldset>
         <br>

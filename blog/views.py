@@ -23,9 +23,16 @@ def post_index(request):
 
     return render(request, 'blog/index.html', context)
 		
-def post_search(request, search_key):
+def post_search_title(request, search_key):
     print("get to views")
     search_post_list = Post.objects.filter(title__contains=search_key)
     context = {'search_post_list': search_post_list}
     return render(request, 'blog/post_search.html', context)
+
+def post_search_dpt(request, search_key):
+    search_post_list = Post.objects.filter(department__contains=search_key)
+    context = {'search_post_list': search_post_list}
+    return render(request, 'blog/post_search.html', context)
+
+
     
