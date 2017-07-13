@@ -15,6 +15,20 @@
         {% endblock %}
 
 
+        {% block extra_javascript %}
+            <script type="text/javascript">
+                function getSearchResult() {
+                    var radios = document.getElementsByName("search_criteria");
+                    var search_input = document.getElementById("search_input");                   
+                    var search_result_url;
+                    search_result_url = "{% url 'post_search' search_key='NOTAKEY' %}"
+                    var result_url = search_result_url.replace('NOTAKEY', search_input.value);
+                    window.location = result_url;
+                }
+            </script>
+        {% endblock %}
+
+
 
 
         <!--Search bar-->
@@ -28,7 +42,7 @@
         <legend> Find What You Want: </legend>
 
             <!--Add some explanations at the background-->
-            <input id="search_keyword" type="text"
+            <input id="search_input" type="text"
             style="width:90%;height: 40px;border-radius: 8px;opacity: 0.6; font-size: 20px;">
             <button onclick="getSearchResult()"
             style="width: 47px;height: 40px;border-radius: 5px;background: white; float: right; opacity: 0.9;"> 🔍</button>
