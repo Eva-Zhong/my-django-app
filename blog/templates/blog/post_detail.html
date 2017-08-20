@@ -1,15 +1,21 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/jumbotron.html' %}
 
 {% block content %}
+  {% block post %}
+
     <div class="post">
         {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
             </div>
         {% endif %}
-        <h1>Headings</h1>
 
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
+
     </div>
+
+    <div style="padding-bottom: 200px;">
+    </div>
+  {% endblock %}
 {% endblock %}
