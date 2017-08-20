@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!------Javascript to get search result ------>
+        {% block extra_javascript %}
+            <script type="text/javascript">
+                function getSearchResult() {
+                    var radios = document.getElementsByName("search_criteria");
+                    var search_result_url;
+
+                    var checkedCriteria;
+                    for (var i = 0, length = radios.length; i<length; i++){
+                        if (radios[i].checked){
+                            checkedCriteria = radios[i].value;
+                        break;
+                        }
+                    }
+
+                    var search_result_url;
+                    if (checkedCriteria == "search_by_dpt"){
+                        search_result_url = "{% url 'post_search_dpt' search_key='NOTAKEY' %}";
+                    } else {
+                        search_result_url = "{% url 'post_search_title' search_key='NOTAKEY' %}";
+                    }
+
+                    var search_input = document.getElementById("search_input");
+
+                    var result_url = search_result_url.replace('NOTAKEY', search_input.value);
+                    window.location = result_url;
+                }
+
+            </script>
+        {% endblock %}
+
+<!-----nav bar ---->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Carl Office Hour</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+    <!--Search bar-->
+    <div id="Search_bar">
+      <fieldset class="search-fieldset" style="position: relative;
+                                              margin-bottom: 15px;
+                                              margin-left: 40px;
+                                              margin-right: 40px;
+                                              text-align: center;
+                                              font-weight: bold;">
+      <legend> Find What You Want: </legend>
+
+          <!--Add some explanations at the background-->
+          <input id="search_input" type="text"
+          style="width:90%;height: 40px;border-radius: 8px;opacity: 0.6; font-size: 20px;">
+          <button onclick="getSearchResult()"
+          style="width: 47px;height: 40px;border-radius: 5px;background: white; float: right; opacity: 0.9;"> 🔍</button>
+          <br><br>
+          <form action="">
+          <input type="radio" name="search_criteria" value="search_by_name"> Search By Name
+          <input type="radio" name="search_criteria" value="search_by_dpt"> Search By Department
+          </form>
+          </fieldset>
+      <br>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        {% block title %}
+            {% block post %}
+            {% endblock %}
+        {% endblock %}
+      </div>
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 Company, Inc.</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
