@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Carl Office Hour</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -55,7 +55,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Carl Office Hour</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
@@ -75,8 +75,19 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Carl Office Hour</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <p>Welcome to our page! Carl Office Hour aims to help students at Carleton College to find out the faculty's office hours more easily.
+            The website is built by students and is still in development. Please contact us if you are interested in joining!
+        </p>
+        <p style="font-size: 16px;">
+            Currently, you will be able to:
+                </br>- Search for a professor's office hour through name or department;
+                </br>- view a professor's office hours
+            </br>
+            </br>
+            We are still working on visualizing a faculty's calendar, adding a log in feature which will allow you to edit the calendar,
+            and creating a mobile site.
+        </p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'post_list' %}" role="button">Home&raquo;</a></p>
       </div>
     </div>
 
@@ -115,7 +126,7 @@
       <hr>
 
       <footer>
-        <p>&copy; 2016 Company, Inc.</p>
+        <!--<p>&copy; 2016 Company, Inc.</p>-->
       </footer>
     </div> <!-- /container -->
 
