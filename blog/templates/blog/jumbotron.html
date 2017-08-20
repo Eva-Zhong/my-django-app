@@ -14,9 +14,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <script src="{% static 'js/search.js' %}"></script>
-<!------Javascript to get search result ------>
-        <!-- {% block extra_javascript %}
+  <!-- <script src="{% static 'js/search.js' %}"></script> -->
+<!-- ----Javascript to get search result ------>
+        {% block extra_javascript %}
             <script type="text/javascript">
                 function getSearchResult() {
                     var radios = document.getElementsByName("search_criteria");
@@ -43,7 +43,7 @@
                     window.location = result_url;
                 }
 
-            </script> -->
+            </script>
         {% endblock %}
 
 <!-----nav bar ---->
