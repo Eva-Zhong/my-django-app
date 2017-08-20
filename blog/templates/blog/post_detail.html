@@ -3,7 +3,8 @@
 {% block content %}
   {% block post %}
 
-    <div class="post">
+    <div class="post-detail" style="margin-left:20px; margin-right:20px;">
+
         {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
@@ -11,6 +12,8 @@
         {% endif %}
 
         <h1>{{ post.title }}</h1>
+        <p class="dept"> Department: {{ post.department|linebreaksbr }}</p>
+
         <p>{{ post.text|linebreaksbr }}</p>
 
     </div>
