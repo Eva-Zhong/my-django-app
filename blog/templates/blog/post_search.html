@@ -8,17 +8,18 @@
               {% for post in search_post_list %}
               <div class="col-md-4">
                   <div class="post">
-                      <div class="date">
-                          <p>published: {{ post.published_date }}</p>
-                      </div>
-
                       <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-                      <p class="dept"> Department: </p> <p="dept"> {{ post.department|linebreaksbr }}</p>
-                      <p class="time"> Department: </p> <p="dept"> {{ post.time|linebreaksbr }}</p>
+                      <p class="dept"> Department: {{ post.department|linebreaksbr }}</p>
+                      <!-- <p class="time"> Department: </p> <p="dept"> {{ post.time|linebreaksbr }}</p> -->
 
                       <!---- problems with using buttons ----->
                       <p><a href="{% url 'post_detail' pk=post.pk %}">View details &raquo;</a></p>
+                      {% if post.published_date %}
 
+        								<p>published: {{ post.published_date }}</p>
+        							{% else %}
+        								<p> Publish date not available </p>
+        							{% endif %}
                   </div>
               </div>
               {% endfor %}
