@@ -19,10 +19,29 @@
     </div>
 
     <h style="font-size: 18px; margin-left:auto; margin-right:auto; padding-bottom: 40px;"> View {{ post.title }}'s calendar </h>
+    <div>
+      Day:
+      <select name="select" id="officehourday"> <!--Supplement an id here instead of using 'name'-->
+      <option value="value1">Monday</option>
+      <option value="value2" selected>Tuesday</option>
+      <option value="value3">Wednesday</option>
+      <option value="value3">Thursday</option>
+      <option value="value3">Friday</option>
+      </select>
 
-    <div id='calendar' class="container" style="padding-top: 20px; ></div>
+      From <input type="time" id="startTime">
 
-    <div style="padding-bottom: 200px;"> </div>
+      To:
+       <input type="time" id="endTime">
+
+    <p>Click the button to set a time for the time field.</p>
+
+    <button onclick="displayEvent()">Add a new office hour!</button>
+
+    <p id="demo"></p>
+    </div>
+
+    <div id='calendar' class="container" style="padding-top: 20px;" ></div>
 
   {% endblock %}
 {% endblock %}

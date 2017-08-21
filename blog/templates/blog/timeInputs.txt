@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Time: <input type="time" id="myTime">
+
+<p>Click the button to set a time for the time field.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+	var curTime = document.getElementById("myTime").value;
+    document.getElementById("myTime").value = "22:53";
+    document.getElementById("demo").innerHTML = document.getElementById("myTime").value;
+}
+</script>
+
+</body>
+</html>
