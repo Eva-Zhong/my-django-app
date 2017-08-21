@@ -15,7 +15,7 @@ body {
 }
 
 #calendar {
-  width: 80%;
-  left: 10%;
+  width: 90%;
+  left: 50px;
   position: absolute;
 }
