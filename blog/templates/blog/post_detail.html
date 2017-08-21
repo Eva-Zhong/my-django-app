@@ -3,7 +3,7 @@
 {% block content %}
   {% block post %}
 
-    <div class="post-detail" style="margin-left:20px; margin-right:20px;">
+    <div class="post-detail" style="margin-left:20px; margin-right:20px; margin-bottom: 50px;">
 
         {% if post.published_date %}
             <div class="date">
@@ -17,6 +17,10 @@
         <p>{{ post.text|linebreaksbr }}</p>
 
     </div>
+
+    <h style="font-size: 18px; margin-left:20px; margin-right:20px; padding-bottom: 40px;"> View {{ post.title }}'s calendar </h>
+
+    <div id='calendar' style="padding-top: 20px; margin-left:20px; margin-right:20px;" ></div>
 
     <div style="padding-bottom: 200px;">
     </div>
