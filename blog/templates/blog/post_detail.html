@@ -20,13 +20,20 @@
 
     <h style="font-size: 18px; margin-left:auto; margin-right:auto; padding-bottom: 40px;"> View {{ post.title }}'s calendar </h>
     <div>
+      <p> Day: <em id="demoDay"></em>
+      <br>From <em id="demo1">startTime</em> to <em id="demo2">endTime</em>
+      </p>
+      <!-- <p id="demo1">Demo1</p>
+      <p id="demo2">Demo2</p>
+      <p id="demoDay">DemoDay</p> -->
+
       Day:
       <select name="select" id="officehourday"> <!--Supplement an id here instead of using 'name'-->
-      <option value="value1">Monday</option>
-      <option value="value2" selected>Tuesday</option>
-      <option value="value3">Wednesday</option>
-      <option value="value3">Thursday</option>
-      <option value="value3">Friday</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday" selected>Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
       </select>
 
       From <input type="time" id="startTime">
@@ -36,9 +43,10 @@
 
     <p>Click the button to set a time for the time field.</p>
 
-    <button onclick="displayEvent()">Add a new office hour!</button>
+    <button  id="createButton">
+      Add a new office hour!
+    </button>
 
-    <p id="demo"></p>
     </div>
 
     <div id='calendar' class="container" style="padding-top: 20px;" ></div>

@@ -19,18 +19,69 @@
   <script src="{% static 'js/fullcalendar.js' %}"></script>
 
 <script type="text/javascript">
+// changeTime block is working
+
+// function changeTime() {
+//
+//       var startTime = document.getElementById("startTime").value;
+//       document.getElementById("demo1").innerHTML = startTime;
+//       var endTime = document.getElementById("endTime").value;
+//       document.getElementById("demo2").innerHTML = endTime;
+// }
+
+//
 $(document).ready(function () {
-    var startTime = '11:00';
-    var endTime = '14:00';
-    var dow = [1,4];
-    var lastView;
-    var weekSource = new Object();
-    weekSource.title = 'CS111'; // this should be string
-    weekSource.start = startTime // this should be date object
-    weekSource.end = endTime;
-    weekSource.dow = dow;
-    var week = new Array();
-    week[0] = weekSource;
+    var weekArr = new Array();
+    $('#createButton').on('click', function(e){
+      // We don't want this to act as a link so cancel the link action
+        e.preventDefault();
+
+        changeTime();
+    });
+
+    function changeTime() {
+      var startTime = document.getElementById("startTime").value;
+      document.getElementById("demo1").innerHTML = startTime;
+      var endTime = document.getElementById("endTime").value;
+      document.getElementById("demo2").innerHTML = endTime;
+      var weekofday = document.getElementById("officehourday").value;
+      var dow;
+      document.getElementById("demoDay").innerHTML = weekofday;
+      if (weekofday == "Monday") {
+        dow = [1];
+      } else if (weekofday == "Tuesday") {
+        dow = [2];
+      } else if (weekofday == "Wednesday") {
+        dow = [3];
+
+      } else if (weekofday == "Thursday") {
+        dow = [4];
+
+      } else if (weekofday == "Friday") {
+        dow = [5];
+      }
+      // var dow = [1,4];
+      var lastView;
+      var weekSource = new Object();
+      weekSource.title = 'CS111'; // this should be string
+      weekSource.start = startTime // this should be date object
+      weekSource.end = endTime;
+      weekSource.dow = dow;
+      // var week = new Array();
+      weekArr[0] = weekSource;
+      $('#calendar').fullCalendar('addEventSource', weekArr);
+      $('#calendar').fullCalendar('rerenderEvents');
+    }
+
+    // var dow = [1,4];
+    // var lastView;
+    // var weekSource = new Object();
+    // weekSource.title = 'CS111'; // this should be string
+    // weekSource.start = '10:00' // this should be date object
+    // weekSource.end = '14:00';
+    // weekSource.dow = dow;
+    // var week = new Array();
+    // week[0] = weekSource;
 
     $('#calendar').fullCalendar({
         header: {
@@ -58,8 +109,8 @@ $(document).ready(function () {
         },
     });
 
-    $('#calendar').fullCalendar('addEventSource', week);
-    $('#calendar').fullCalendar('rerenderEvents');
+    // $('#calendar').fullCalendar('addEventSource', week);
+    // $('#calendar').fullCalendar('rerenderEvents');
 });
 </script>
 
