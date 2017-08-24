@@ -89,12 +89,17 @@ $(document).ready(function () {
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },
-        columnFormat: {
-            month: 'ddd',
-            week: 'ddd d/M',
-            day: 'dddd d/M'
-        },
-        defaultView: 'agendaDay',
+        minTime: "08:00:00",
+        maxTime: "20:00:00",
+        contentHeight: 'auto',
+
+        // columnFormat: {
+        //     month: 'ddd',
+        //     week: 'ddd d/M',
+        //     day: 'dddd d/M'
+        // },
+        defaultView: 'agendaWeek',
+        editable: true,
 
         viewDisplay: function (view) {
             if (lastView == 'undefined') {
@@ -107,10 +112,22 @@ $(document).ready(function () {
                 }
             }
         },
-    });
+
+        businessHours: {
+    // days of week. an array of zero-based day of week integers (0=Sunday)
+          dow: [ 1, 2, 3, 4 ], // Monday - Thursday
+
+          start: '10:00', // a start time (10am in this example)
+          end: '18:00', // an end time (6pm in this example)
+        }
+
+
+
+
 
     // $('#calendar').fullCalendar('addEventSource', week);
     // $('#calendar').fullCalendar('rerenderEvents');
+});
 });
 </script>
 
