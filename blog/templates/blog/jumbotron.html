@@ -131,8 +131,61 @@ $(document).ready(function () {
 });
 </script>
 
+<style>
+  /*jumbotron Carl Office Hour intro section*/
+  .jumbotron{
+    background-color: #1253a4;
+    color: #f2f2f3;
+  }
+  .btn{
+    background-color: #fbcb15;
+    border:none;
+    color: white;
+  }
+  .btn:hover{
+    background-color: #a8b6bf;
+  }
+
+  /*Search bar*/
+  legend{
+    color: #1253a4;
+  }
+  #Search_bar{
+    color: #1253a4;
+  }
+
+  #Search_box {
+    width:500px;
+    margin:30px auto;
+  }
+  #search_input {
+    width:80%;
+    height:36px;
+    background:#cbcbc1;
+    opacity:0.7;
+    border:0px solid #dbdbdb;
+  }
+  #searchbutton {
+    position:relative;
+    padding:8px 15px;
+    left:-8px;
+    border:none;
+    background-color:#335fb8;
+    color:#fafafa;
+  }
+  #searchbutton:hover  {
+    background-color:#a8b6bf;
+  }
+
+  body {
+    background-color: #efefef;
+  }
+
+</style>
+
 
 </head>
+
 <body>
 <!-- ----Javascript to get search result ------>
         {% block extra_javascript %}
@@ -200,14 +253,14 @@ $(document).ready(function () {
         </p>
         <p style="font-size: 16px;">
             Currently, you will be able to:
-                </br>- Search for a professor's office hour through name or department;
-                </br>- view a professor's office hours
+                </br>- Search for a professor's office hour through name or department
+                </br>- View a professor's office hours
             </br>
             </br>
             We are still working on visualizing a faculty's calendar, adding a log in feature which will allow you to edit the calendar,
             and creating a mobile site.
         </p>
-        <p><a class="btn btn-primary btn-lg" href="{% url 'post_list' %}" role="button">Home&raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'post_list' %}" role="button">Home &raquo;</a></p>
       </div>
     </div>
 
@@ -222,14 +275,16 @@ $(document).ready(function () {
       <legend> Find What You Want: </legend>
 
           <!--Add some explanations at the background-->
-          <input id="search_input" type="text"
-          style="width:90%;height: 40px;border-radius: 8px;opacity: 0.6; font-size: 20px;">
-          <button onclick="getSearchResult()"
-          style="width: 47px;height: 40px;border-radius: 5px;background: white; float: right; opacity: 0.9;"> 🔍</button>
+          <div id="search_box">
+          <input id="search_input" type="text" placeholder="Search...">
+          <button id="searchbutton" onclick="getSearchResult()"
+          >🔍</button>
+          </div>
+
           <br><br>
           <form action="">
-          <input type="radio" name="search_criteria" value="search_by_name"> Search By Name
-          <input type="radio" name="search_criteria" value="search_by_dpt"> Search By Department
+          <input type="radio" name="search_criteria" value="search_by_name"> Search by Name
+          &nbsp;<input type="radio" name="search_criteria" value="search_by_dpt"> Search by Department
           </form>
           </fieldset>
       <br>

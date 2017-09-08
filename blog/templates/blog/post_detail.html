@@ -1,52 +1,118 @@
-{% extends 'blog/jumbotron.html' %}
+<style>
+  .post-detail {
+    overflow:auto;
+    background:  #dfdce3;
+    padding-top:50px;
+    padding-bottom: 30px;
+    color:#1253a4;
+  }
+  #left {
+    margin-left:30px;
+    align-items: center;
 
+  }
+  #right{
+    width: 70%;
+    font-size: 16px;
+    margin-right: 70px;
+  }
+  #left  { float:left;  }
+  #right { float:right; }
+
+  .calendar-text{
+    color:#1253a4;
+  }
+  .entertimesection{
+  	font-size: 14px;
+  	font-weight:bold;
+  	background-color:#dfdce3;
+    color:#1253a4;#f4decb
+  }
+  #entertimetitle{
+  	font-size: 25px;
+  	margin: 0px 15px;
+  }
+  #entertime{
+  	margin: 0px 105px;
+  	line-height: 90%;
+  }
+  #createbutton{
+  	background-color: #fbcb15;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  #createbutton:hover{
+  	background-color: #a8b6bf;
+  }
+
+
+</style>
+
+{% extends 'blog/jumbotron.html' %}
 {% block content %}
   {% block post %}
 
-    <div class="post-detail" style="padding-bottom: 50px;">
-
-        {% if post.published_date %}
+    <div class="post-detail">
+        <div id="left">
+          <h1>{{ post.title }}</h1>
+          <p class="dept"> Department: {{ post.department|linebreaksbr }}</p>
+          {% if post.published_date %}
             <div class="date">
-                {{ post.published_date }}
+              Last update: {{ post.published_date }}
             </div>
-        {% endif %}
+          {% endif %}
+        </div>
 
-        <h1>{{ post.title }}</h1>
-        <p class="dept"> Department: {{ post.department|linebreaksbr }}</p>
-
-        <p style="font-size: 16px; margin-right: 200px;">{{ post.text|linebreaksbr }}</p>
+        <p id="right">{{ post.text|linebreaksbr }}</p>
 
     </div>
 
-    <h style="font-size: 22px; font-weight: bold; margin-left:auto; margin-right:auto; padding-bottom: 40px;"> View {{ post.title }}'s calendar </h>
-    <div>
-      <p> Day: <em id="demoDay"></em>
-      <br>From <em id="demo1">startTime</em> to <em id="demo2">endTime</em>
-      </p>
-      <!-- <p id="demo1">Demo1</p>
-      <p id="demo2">Demo2</p>
-      <p id="demoDay">DemoDay</p> -->
+    <div class="calendar-text">
+      <h2 align="center" style="font-weight: bold; "> View {{ post.title }}'s calendar </h2>
+      <div>
+        <p align="center" style="font-size: 18px;" > Office Hour: <em id="demoDay"></em>
+        <br>From <em id="demo1">startTime</em> to <em id="demo2">endTime</em>
+        </p>
+        <!-- <p id="demo1">Demo1</p>
+        <p id="demo2">Demo2</p>
+        <p id="demoDay">DemoDay</p> -->
+    </div>
 
-      <p> Enter time for this professor! </p>
-      Day:
-      <select name="select" id="officehourday"> <!--Supplement an id here instead of using 'name'-->
-        <option value="Monday">Monday</option>
-        <option value="Tuesday" selected>Tuesday</option>
-        <option value="Wednesday">Wednesday</option>
-        <option value="Thursday">Thursday</option>
-        <option value="Friday">Friday</option>
-      </select>
+    <div class="entertimesection">
+          <p id="entertimetitle"> Enter time for this professor! </p>
+          <div id="entertime">
+          	  <br/>
+	          Day:
+	          <select name="select" id="officehourday"> <!--Supplement an id here instead of using 'name'-->
+	            <option value="Monday">Monday</option>
+	            <option value="Tuesday">Tuesday</option>
+	            <option value="Wednesday">Wednesday</option>
+	            <option value="Thursday">Thursday</option>
+	            <option value="Friday">Friday</option>
+	          </select>
 
-      From <input type="time" id="startTime">
+	          <div id="inputtime">
+	          <br/>
+	          From <input type="time" id="startTime">
+	          To
+	           <input type="time" id="endTime">
+	           </div>
 
-      To:
-       <input type="time" id="endTime">
 
-    <p>Click the button to add this office hour to the calendar!</p>
+	        <!--<p>Click the button to add this office hour to the calendar!</p>-->
 
-    <button  id="createButton">
-      Add to calendar
-    </button>
+	        <button  id="createButton">
+	          Add to calendar
+	        </button>
+	       </div>
 
     </div>
 
